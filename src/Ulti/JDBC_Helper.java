@@ -19,8 +19,8 @@ import java.util.logging.Logger;
 public class JDBC_Helper {
 
     static String user = "sa";
-    static String pass = "2210";
-    static String url = "jdbc:sqlserver://localhost:1433;databaseName=DuAn1_QLQN;";
+    static String pass = "123";
+    static String url = "jdbc:sqlserver://localhost:1433;databaseName=DuAn1_QLQN_H;";
 
     static {
         try {

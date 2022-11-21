@@ -67,6 +67,8 @@ public class pnl_DichVu extends javax.swing.JPanel {
         float giaban = Float.parseFloat(txtGiaBan.getText());
         String donvi = txtDonVi.getText();
         String danhmuc = txtDanhMuc.getText();
+        
+        
 
         dv.setMaDV(ma);
         dv.setTenDV(ten);
@@ -76,6 +78,16 @@ public class pnl_DichVu extends javax.swing.JPanel {
         dv.setDanhMuc(danhmuc);
         dv.setHinh(lblHinh.getToolTipText());
         return dv;
+    }
+    public void clear(){
+                txtMaDV.setText("");
+        txtTenDV.setText("");
+        txtSoLuong.setText("");
+        txtGiaBan.setText("");
+        txtTim.setText("");
+        txtDonVi.setText("");
+        txtDanhMuc.setText("");
+        lblHinh.setIcon(null);
     }
 
     /**
@@ -192,6 +204,11 @@ public class pnl_DichVu extends javax.swing.JPanel {
 
         btnTim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_search_30px.png"))); // NOI18N
         btnTim.setText("Tìm");
+        btnTim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimActionPerformed(evt);
+            }
+        });
 
         btnNew.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_refresh_30px.png"))); // NOI18N
@@ -416,6 +433,7 @@ public class pnl_DichVu extends javax.swing.JPanel {
         }
         iDichVu_service.update(dv);
         JOptionPane.showMessageDialog(this, "Sua thanh cong!");
+        clear();
         loadTable();
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -445,7 +463,7 @@ public class pnl_DichVu extends javax.swing.JPanel {
         }
         iDichVu_service.add(dv);
         JOptionPane.showMessageDialog(this, "Them thanh cong!");
-
+        clear();
         loadTable();
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -455,21 +473,23 @@ public class pnl_DichVu extends javax.swing.JPanel {
         if (dv != null) {
             iDichVu_service.delete(dv);
             JOptionPane.showMessageDialog(this, "Xoa thanh cong!");
+            clear();
             loadTable();
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         // TODO add your handling code here:
-        txtMaDV.setText("");
-        txtTenDV.setText("");
-        txtSoLuong.setText("");
-        txtGiaBan.setText("");
-        txtTim.setText("");
-        txtDonVi.setText("");
-        txtDanhMuc.setText("");
-        lblHinh.setIcon(null);
+        clear();
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
+        // TODO add your handling code here:
+        String key = txtTim.getText();
+        if(key.startsWith("DV")==true){
+            
+        }
+    }//GEN-LAST:event_btnTimActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
